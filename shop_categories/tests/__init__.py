@@ -4,6 +4,7 @@ from shop.models.productmodel import Product # is the overridden CategoryProduct
 from shop_categories.models.categorymodel import Category # is the overridden Category (project.models.category.Category)
 
 from django.test.testcases import TestCase
+from django.template.defaultfilters import slugify
 
 def make_category_tree():
     top = Category(name='Top category', slug=slugify('Top category'), active=True)
