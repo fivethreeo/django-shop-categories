@@ -26,17 +26,20 @@ class CategoryProductTestCase(TestCase):
     def setUp(self):
         make_category_tree()
 
-    def test_tree_unicode(self):
+    def test_category_unicode(self):
         self.assertEqual(unicode(Category.objects.get(slug='level1-first')), 'Top category> Level1 first')
         
-    def test_tree_save(self):
+    def test_category_short_title(self):
+        self.assertEqual(Category.objects.get(slug='level1-first').short_title(), 'Level1 first')
+        
+    def test_category_save(self):
         Category.objects.get(slug='level1-first').save()
                 
-    def test_tree_count(self):
+    def test_category_count(self):
         self.assertEqual(Category.objects.count(), 6)
         
-    def test_tree_leaf_path(self):
+    def test_category_leaf_path(self):
         self.assertEqual(Category.objects.get(slug='level2-first-sub').path, 'top-category/level1-first/level2-first/level2-first-sub')
     
-    def test_tree_leaf_url(self):
-        self.assertEqual(Category.objects.get(slug='level2-first-sub').get_absolute_url(), 'shop/catalog/top-category/level1-first/level2-first/level2-first-sub')
+    def test_category_leaf_url(self):
+        self.assertEqual(Category.objects.get(slug='level2-first-sub').get_absolute_url(), '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub')
