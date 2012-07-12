@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.utils.translation import ugettext_lazy as _
 from mptt.managers import TreeManager
-from shop_categories.models.defaults.productcategorybase import ProductCategoryBase
+from shop_categories.models.defaults.category.base import ProductCategoryBase
 
 class Category(ProductCategoryBase):
     tree = TreeManager()

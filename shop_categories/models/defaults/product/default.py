@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.utils.translation import ugettext_lazy as _
-from shop_categories.models.defaults.categoryproductbase import CategoryProductBase
+from shop_categories.models.defaults.product.base import CategoryProductBase
         
 class CategoryProduct(CategoryProductBase):     
     

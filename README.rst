@@ -24,7 +24,7 @@ Configuration
 
 Add ``shop_categories`` to ``settings.INSTALLED_APPS``.
 
-Set ``SHOP_PRODUCT_MODEL`` to ``shop_categories.models.default.CategoryProduct``.
+Set ``SHOP_PRODUCT_MODEL`` to ``shop_categories.models.default.product.default.CategoryProduct``.
 
 In your urls.py add this **before** your shop patterns:
 
@@ -43,7 +43,7 @@ Then run:
 Extending
 -------------
 
-In your own app make a models with __init__.py and a category.py dir, like so:
+In your own app make a models dir with __init__.py and a category.py dir, like so:
 
 ::
 
@@ -73,3 +73,5 @@ Then, assuming your Product model is not already synced, run:
 ::
 
     manage.py syncdb
+    
+When extending Product models in your shop make sure they subclass from ``shop_categories.models.defaults.product.base .CategoryProductBase``
