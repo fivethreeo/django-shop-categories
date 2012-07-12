@@ -16,7 +16,7 @@ CLASSIFIERS = [
 setup(
     name='django-shop-categories',
     version=shop_categories.get_version(),
-    description='This is a generic payment app for django using Netaxept',
+    description='A extendable category app using django-mptt for django-shop',
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     author='Oyvind Saltvik',
     author_email='oyvind.saltvik@gmail.com',

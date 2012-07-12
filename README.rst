@@ -2,7 +2,7 @@
 django-shop-categories
 ======================
 
-A generic payment app for Django using Netaxept
+A extendable category app using django-mptt for django-shop.
 
 Installation
 ------------
