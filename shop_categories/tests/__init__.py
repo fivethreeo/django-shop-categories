@@ -30,4 +30,4 @@ class CategoryProductTestCase(TestCase):
         self.assertEqual(Category.objects.count(), 6)
         
     def test_tree_leaf_path(self):
-        self.assertEqual(Category.objects.get(slug='level2-first-sub').path, 'top-category/level2-first/level2-first-sub')
+        self.assertEqual(Category.objects.get(slug='level2-first-sub').path, 'top-category/level1-first/level2-first/level2-first-sub')
