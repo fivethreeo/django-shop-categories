@@ -42,4 +42,4 @@ class CategoryProductTestCase(TestCase):
         self.assertEqual(Category.objects.get(slug='level2-first-sub').path, 'top-category/level1-first/level2-first/level2-first-sub')
     
     def test_category_leaf_url(self):
-        self.assertEqual(Category.objects.get(slug='level2-first-sub').get_absolute_url(), '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub')
+        self.assertEqual(Category.objects.get(slug='level2-first-sub').get_absolute_url(), '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/')
