@@ -24,12 +24,12 @@ setup(
     packages=find_packages(),
     package_data={
         'shop_categories': [
-            'static/shop_categories/*',
+            'templates/shop_categories/*',
             'locale/*/LC_MESSAGES/*',
         ]
     },
     classifiers=CLASSIFIERS,
     include_package_data=True,
     zip_safe=False,
-    install_requires=['django-mptt', 'django-treeadmin']
+    install_requires=['django-shop', 'django-mptt', 'django-treeadmin']
 )
