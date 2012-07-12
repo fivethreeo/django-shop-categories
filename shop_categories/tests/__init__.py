@@ -27,7 +27,7 @@ class CategoryProductTestCase(TestCase):
         make_category_tree()
 
     def test_tree_unicode(self):
-        self.assertEqual(unicode(Category.objects.get(slug='level1-first')., 'Top category> Level1 first')
+        self.assertEqual(unicode(Category.objects.get(slug='level1-first')), 'Top category> Level1 first')
         
     def test_tree_save(self):
         Category.objects.get(slug='level1-first').save()
