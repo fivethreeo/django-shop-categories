@@ -1,0 +1,2 @@
+recursive-include shop_categories/templates *
+recursive-include shop_categories/locale *
