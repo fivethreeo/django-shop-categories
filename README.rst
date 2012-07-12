@@ -74,4 +74,4 @@ Then, assuming your Product model is not already synced, run:
 
     manage.py syncdb
     
-When extending Product models in your shop make sure they subclass from ``shop_categories.models.defaults.product.base .CategoryProductBase``
+When extending Product models in your shop make sure they subclass from ``shop_categories.models.defaults.product.base.CategoryProductBase``
