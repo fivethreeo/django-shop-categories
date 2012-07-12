@@ -44,8 +44,7 @@ def configure(**extra):
             "django.core.context_processors.media",
             'django.core.context_processors.csrf',
             "django.core.context_processors.static",
-            "treeadmin",
-            "shop_categories"
+            "treeadmin"
         ],
         MIDDLEWARE_CLASSES = [
             'django.contrib.sessions.middleware.SessionMiddleware',
@@ -62,7 +61,9 @@ def configure(**extra):
             'django.contrib.sessions',
             'django.contrib.admin',
             'django.contrib.sites',
-            'django.contrib.staticfiles'
+            'django.contrib.staticfiles',
+            'treeadmin',
+            'shop_categories'
         ],
         LANGUAGE_CODE = "en",
         LANGUAGES = (
