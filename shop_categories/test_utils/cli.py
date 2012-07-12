@@ -43,8 +43,7 @@ def configure(**extra):
             "django.core.context_processors.request",
             "django.core.context_processors.media",
             'django.core.context_processors.csrf',
-            "django.core.context_processors.static",
-            "treeadmin"
+            "django.core.context_processors.static"
         ],
         MIDDLEWARE_CLASSES = [
             'django.contrib.sessions.middleware.SessionMiddleware',
@@ -63,7 +62,8 @@ def configure(**extra):
             'django.contrib.sites',
             'django.contrib.staticfiles',
             'treeadmin',
-            'shop_categories'
+            'shop_categories',
+            'shop_categories.test_utils.project'
         ],
         LANGUAGE_CODE = "en",
         LANGUAGES = (
@@ -74,7 +74,9 @@ def configure(**extra):
             ('nl', gettext("Dutch")),
         ),
         SOUTH_TESTS_MIGRATE = False,
-        ROOT_URLCONF = ROOT_URLCONF
+        ROOT_URLCONF = ROOT_URLCONF,
+        SHOP_PRODUCT_MODEL = 'shop_categories.models.product.Product',
+        CATEGORYPRODUCT_CATEGORY_MODEL = 'shop_categories.models.category.Category'
     )
     defaults.update(extra)
     settings.configure(**defaults)

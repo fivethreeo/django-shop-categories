@@ -1,0 +1,29 @@
+{% extends "shop/base.html" %}
+
+{% block body %}
+ <p>{% for ancestor in category.get_ancestors %}
+     {{ ancestor }} -
+ {% endfor %}{{ category }}</p>
+  <h1>Product list for {{ category }}:</h1>
+  <hr />
+  {% for object in object_list %}
+  <a href="{{ object.get_absolute_url }}">{{object.get_name}}</a><br />
+  {{object.slug}}<br />
+  {{object.short_description}}<br />
+  {{object.long_description}}<br />
+  {{object.active}}<br />
+
+  {{object.date_added}}<br />
+  {{object.last_modified}}<br />
+
+  {{object.unit_price}}<br />
+
+  {% if object.category %}
+  {{object.category.name}}<br />
+  {% else %}
+  (Product is at root category)<br />
+  {% endif %}
+  <hr />
+
+  {% endfor %}
+{% endblock %}
