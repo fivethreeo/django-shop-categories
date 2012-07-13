@@ -90,7 +90,7 @@ class CategoryProductTestCase(TestCase):
     def test_list_products_in_category(self):
         category = Category.objects.get(slug='level1-first')
         response = self.client.get(category.get_absolute_url())
-        self.assertEqual(response-content, '')
+        self.assertEqual(response.content, '')
 
         self.assertContains(response, '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product-1/')
         self.assertContains(response, '/shop/catalog/top-category/level1-first/level2-first/product-2/')
