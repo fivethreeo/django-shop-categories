@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import random
 from decimal import Decimal
 from shop.models.productmodel import Product # is the overridden CategoryProduct (project.models.product.Product)
 from shop_categories.models.categorymodel import Category # is the overridden Category (project.models.category.Category)
@@ -21,7 +22,7 @@ def make_category_tree():
     level2_second.save()
     Category.tree.rebuild()
 
-class CategoryProductTestCase(TestCase):
+class CategoryTestCase(TestCase):
 
     def setUp(self):
         make_category_tree()
@@ -43,3 +44,57 @@ class CategoryProductTestCase(TestCase):
     
     def test_category_leaf_url(self):
         self.assertEqual(Category.objects.get(slug='level2-first-sub').get_absolute_url(), '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/')
+        
+class CategoryProductTestCase(TestCase):
+
+    def setUp(self):
+        make_category_tree()
+        Product(
+            name='Product 1',
+            slug=slugify('Product 1'),
+            active=True,
+            unit_price=Decimal(random.randint(50, 1000)),
+            main_category=Category.objects.get(slug='level2-first-sub')
+        ).save()
+        Product(
+            name='Product 2',
+            slug=slugify('Product 2'),
+            active=True,
+            unit_price=Decimal(random.randint(50, 1000)),
+            main_category=Category.objects.get(slug='level1-first')
+        ).save()
+        Product(
+            name='Product 3',
+            slug=slugify('Product 3'),
+            active=True,
+            unit_price=Decimal(random.randint(50, 1000)),
+            main_category=Category.objects.get(slug='level1-second')
+        ).save()
+                
+    def test_product_adds_additional_categories(self):
+        p = Product(
+            name='Product 4',
+            slug=slugify('Product 4'),
+            active=True,
+            unit_price=Decimal(random.randint(50, 1000)),
+            main_category=Category.objects.get(slug='level1-second')
+        )
+        
+        p.save()
+        self.assertEqual(p.additional_categories.all()[0].slug, 'level1-second')
+        
+    def test_product_absolute_url(self):
+        self.assertEqual(Product.objects.get(slug='poroduct-1').get_absolute_url(), 
+            '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product-1/')
+        
+    def test_list_products_in_category(self):
+        category = Category.objects.get(slug='level1-first')
+        response = self.client.get(category.get_absolute_url())
+        self.assertContains(response, '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product-1/')
+        self.assertContains(response, '/shop/catalog/top-category/level1-first/level2-first/product-2/')
+        self.assertNotContains(response, '/shop/catalog/top-category/level1-second/product-3/')
+        category = Category.objects.get(slug='level1-second')
+        response = self.client.get(category.get_absolute_url())
+        self.assertNotContains(response, '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product-1/')
+        self.assertNotContains(response, '/shop/catalog/top-category/level1-first/level2-first/product-2/')
+        self.assertContains(response, '/shop/catalog/top-category/level1-second/product-3/')
