@@ -84,7 +84,7 @@ class CategoryProductTestCase(TestCase):
         self.assertEqual(p.additional_categories.all()[0].slug, 'level1-second')
         
     def test_product_absolute_url(self):
-        self.assertEqual(Product.objects.get(slug='poroduct-1').get_absolute_url(), 
+        self.assertEqual(Product.objects.get(slug='product-1').get_absolute_url(), 
             '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product-1/')
         
     def test_list_products_in_category(self):
