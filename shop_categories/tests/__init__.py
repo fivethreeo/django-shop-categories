@@ -85,18 +85,18 @@ class CategoryProductTestCase(TestCase):
         
     def test_product_absolute_url(self):
         self.assertEqual(Product.objects.get(slug='product-1').get_absolute_url(), 
-            '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product-1/')
+            '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product/product-1/')
         
     def test_list_products_in_category(self):
         category = Category.objects.get(slug='level1-first')
         response = self.client.get(category.get_absolute_url())
-        self.assertEqual(response.content, '')
+        # self.assertEqual(response.content, '')
 
         self.assertContains(response, '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product/product-1/')
-        self.assertContains(response, '/shop/catalog/top-category/level1-first/level2-first/product/product-2/')
+        self.assertContains(response, '/shop/catalog/top-category/level1-first/product/product-2/')
         self.assertNotContains(response, '/shop/catalog/top-category/level1-second/product/product-3/')
         category = Category.objects.get(slug='level1-second')
         response = self.client.get(category.get_absolute_url())
         self.assertNotContains(response, '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product/product-1/')
-        self.assertNotContains(response, '/shop/catalog/top-category/level1-first/level2-first/product/product-2/')
+        self.assertNotContains(response, '/shop/catalog/top-category/level1-first/product/product-2/')
         self.assertContains(response, '/shop/catalog/top-category/level1-second/product/product-3/')
