@@ -9,6 +9,6 @@ from shop.util.loader import load_class
 #==============================================================================
 # Extensibility
 #==============================================================================
-CATEGORY_MODEL = getattr(settings, 'CATEGORYPRODUCT_CATEGORY_MODEL',
+CATEGORY_MODEL = getattr(settings, 'SHOP_CATEGORIES_CATEGORY_MODEL',
     'shop_categories.models.defaults.category.default.Category')
-Category = load_class(CATEGORY_MODEL, 'CATEGORYPRODUCT_CATEGORY_MODEL')
+Category = load_class(CATEGORY_MODEL, 'SHOP_CATEGORIES_CATEGORY_MODEL')

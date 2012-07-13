@@ -30,4 +30,4 @@ def get_model_string(model_name, setting_format='SHOP_%s_MODEL', fallback_format
     return "%s.%s" % (app_label, model_name)
     
 def get_category_model_string(model_name):
-    return get_model_string(model_name, setting_format='CATEGORYPRODUCT_%s_MODEL', fallback_format='shop_categories.%s')
+    return get_model_string(model_name, setting_format='SHOP_CATEGORIES_%s_MODEL', fallback_format='shop_categories.%s')

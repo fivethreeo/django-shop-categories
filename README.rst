@@ -66,7 +66,7 @@ In category.py:
             abstract = False
             app_label = 'app'
 
-Set ``CATEGORYPRODUCT_CATEGORY_MODEL`` to ``app.models.category.Category``
+Set ``SHOP_CATEGORIES_CATEGORY_MODEL`` to ``app.models.category.Category``
 
 Then, assuming your Product model is not already synced, run:
 
