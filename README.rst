@@ -24,7 +24,7 @@ Configuration
 
 Add ``shop_categories`` to ``settings.INSTALLED_APPS``.
 
-Set ``SHOP_PRODUCT_MODEL`` to ``shop_categories.models.default.product.default.CategoryProduct``.
+Set ``SHOP_PRODUCT_MODEL`` to ``shop_categories.models.defaults.product.default.CategoryProduct``.
 
 In your urls.py add this **before** your shop patterns:
 

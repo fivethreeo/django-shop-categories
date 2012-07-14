@@ -1,6 +1,10 @@
 from django.conf import settings
 from django.core import exceptions
 
+CLASS_PATH_ERROR = '''django-shop-categories is unable to interpret settings value for %s. %s should ' \
+                   'be in ther form of a tuple: (\'path.to.models.Class\',
+                   \'app_label\').''' 
+                   
 def get_model_string(model_name, setting_format='SHOP_%s_MODEL', fallback_format='shop.%s'):
     """
     Returns the model string notation Django uses for lazily loaded ForeignKeys
