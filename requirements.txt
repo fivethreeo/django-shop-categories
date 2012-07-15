@@ -1,0 +1,5 @@
+django>=1.4
+django-shop
+django-mptt
+django-treeadmin
+django-easytests

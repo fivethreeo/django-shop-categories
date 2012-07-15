@@ -23,11 +23,11 @@ Running tests:
 
 ::
 
-    git clone git+git://github.com/fivethreeo/django-shop-categories.git
+    git clone git://github.com/fivethreeo/django-shop-categories.git
     cd django-shop-categories
     virtualenv test_env
     source ./test_env/bin/activate
-    pip install -e requirements.txt
+    pip install -r requirements.txt
     python runtests.py  
     
 Configuration
