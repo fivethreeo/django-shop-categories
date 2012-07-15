@@ -27,4 +27,4 @@ default_settings.update(dict(
 testsetup = TestSetup(appname='shop_categories', default_settings=default_settings)
 
 if __name__ == '__main__':
-    testsetup.run('shell')
+    testsetup.run('tests')
