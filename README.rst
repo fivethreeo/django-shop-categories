@@ -19,6 +19,17 @@ For the development version:
 
     pip install -e git+git://github.com/fivethreeo/django-shop-categories.git#egg=django-shop-categories
 
+Running tests:
+
+::
+
+    git clone git+git://github.com/fivethreeo/django-shop-categories.git
+    cd django-shop-categories
+    virtualenv test_env
+    source ./test_env/bin/activate
+    pip install -e requirements.txt
+    python runtests.py  
+    
 Configuration
 -------------
 
