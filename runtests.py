@@ -20,20 +20,11 @@ default_settings.update(dict(
         'shop_categories',
         'shop_categories.test_utils.project'
     ],
-    LANGUAGE_CODE = "en",
-    LANGUAGES = (
-        ('en', gettext('English')),
-        ('fr', gettext('French')),
-        ('de', gettext('German')),
-        ('pt-BR', gettext("Brazil")),
-        ('nl', gettext("Dutch")),
-    ),
-    SOUTH_TESTS_MIGRATE = False,
     SHOP_PRODUCT_MODEL = 'shop_categories.test_utils.project.models.product.Product',
     SHOP_CATEGORIES_CATEGORY_MODEL = 'shop_categories.test_utils.project.models.category.Category'
 ))
 
-testsetup = TestSetup(appname='shop_example', default_settings=default_settings)
+testsetup = TestSetup(appname='shop_categories', default_settings=default_settings)
 
 if __name__ == '__main__':
     testsetup.run('shell')
