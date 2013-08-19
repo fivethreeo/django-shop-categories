@@ -103,3 +103,7 @@ Extending the Product model
 ----------------------------
 
 When extending Product models in your shop make sure they subclass from ``shop_categories.models.defaults.product.base.CategoryProductBase`` to add the Category Foreignkey and M2M fields.
+
+Example implementation
+----------------------
+An example of a django-shop with django-shop-categories can be found here: https://github.com/fivethreeo/django-shop-example
