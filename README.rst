@@ -51,8 +51,8 @@ Then run:
 
     manage.py syncdb
 
-Extending
--------------
+Extending the Category model
+----------------------------
 
 In your own app make a models dir with __init__.py and a category.py dir, like so:
 
@@ -95,5 +95,8 @@ Then, assuming your Product model is not already synced, run:
 ::
 
     manage.py syncdb
-    
-When extending Product models in your shop make sure they subclass from ``shop_categories.models.defaults.product.base.CategoryProductBase``
+
+Extending the Product model
+----------------------------
+
+When extending Product models in your shop make sure they subclass from ``shop_categories.models.defaults.product.base.CategoryProductBase`` to add the Category Foreignkey and M2M fields.
