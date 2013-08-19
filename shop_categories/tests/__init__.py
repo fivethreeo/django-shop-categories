@@ -20,7 +20,7 @@ def make_category_tree():
     level2_first_sub.save()
     level2_second = Category(name='Level2 second', slug=slugify('Level2 second'), active=True, parent=level1_first)
     level2_second.save()
-    Category.tree.rebuild()
+    Category.objects.rebuild()
 
 class CategoryTestCase(TestCase):
 
