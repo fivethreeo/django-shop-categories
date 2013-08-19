@@ -6,7 +6,7 @@ env:
     - DJANGO="django>=1.3,<1.4"
     - DJANGO="django>=1.4,<1.5"
 install:
-    - pip install $DJANGO django-shop django-mptt django-treeadmin django-easytests
+    - pip install $DJANGO django-shop django-mptt django-treeadmin django-easytests six
 script:
     python runtests.py
 notifications:
