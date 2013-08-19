@@ -61,6 +61,7 @@ In your own app make a models dir with __init__.py and a category.py dir, like s
     app/models/__init__.py
     app/models/category.py
 
+Note: Do not import the model from category.py in __init__.py the model should NOT be a "real" models module. 
 
 In category.py:
 
