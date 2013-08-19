@@ -1,5 +1,5 @@
 from django.db import models
-from shop.models.defaults.bases import BaseProduct
+from shop.models_bases import BaseProduct
 from mptt.fields import TreeForeignKey, TreeManyToManyField
 from shop_categories.utils import get_category_model_string
 
