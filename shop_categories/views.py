@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404
 
 from shop.views import ShopListView
 from shop.views.product import ProductDetailView
-from shop.models.productmodel import Product
 from shop_categories.models import Category
 
 class CategoryShopListView(ShopListView):
