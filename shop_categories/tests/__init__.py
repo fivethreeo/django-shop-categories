@@ -80,7 +80,7 @@ class CategoryProductTestCase(TestCase):
         ).save()
         Product(
             name='Product 4 with other treeid',
-            slug=slugify('Product 3'),
+            slug=slugify('Product 4'),
             active=True,
             unit_price=Decimal(random.randint(50, 1000)),
             main_category=Category.objects.get(slug='level1-two-second')
