@@ -20,6 +20,14 @@ def make_category_tree():
     level2_first_sub.save()
     level2_second = Category(name='Level2 second', slug=slugify('Level2 second'), active=True, parent=level1_first)
     level2_second.save()
+    top_two = Category(name='Top category two', slug=slugify('Top category two'), active=True)
+    top_two.save()
+    level1_two_first = Category(name='Level1 two first', slug=slugify('Level1 two first'), active=True, parent=top_two)
+    level1_two_first.save()
+    level1_two_second = Category(name='Level1 two second', slug=slugify('Level1 two second'), active=True, parent=top_two)
+    level1_two_second.save()
+    level1_two_second_sub = Category(name='Level1 two second sub', slug=slugify('Level1 two second sub'), active=True, parent=level1_two_second)
+    level1_two_first_sub.save()
     Category.objects.rebuild()
 
 class CategoryTestCase(TestCase):
@@ -70,11 +78,18 @@ class CategoryProductTestCase(TestCase):
             unit_price=Decimal(random.randint(50, 1000)),
             main_category=Category.objects.get(slug='level1-second')
         ).save()
-                
+        Product(
+            name='Product 4 with other treeid',
+            slug=slugify('Product 3'),
+            active=True,
+            unit_price=Decimal(random.randint(50, 1000)),
+            main_category=Category.objects.get(slug='level1-two-second')
+        ).save()
+                                
     def test_product_adds_additional_categories(self):
         p = Product(
-            name='Product 4',
-            slug=slugify('Product 4'),
+            name='Product 5',
+            slug=slugify('Product 5'),
             active=True,
             unit_price=Decimal(random.randint(50, 1000)),
             main_category=Category.objects.get(slug='level1-second')
@@ -103,3 +118,11 @@ class CategoryProductTestCase(TestCase):
         self.assertNotContains(response, '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product/product-1/')
         self.assertNotContains(response, '/shop/catalog/top-category/level1-first/product/product-2/')
         self.assertContains(response, '/shop/catalog/top-category/level1-second/product/product-3/')
+
+        category = Category.objects.get(slug='top-category')
+        response = self.client.get(category.get_absolute_url())
+        self.assertNotContains(response, '/shop/catalog/top-category-two/level1-two-second/level1-two-second-sub/product/product-4/')
+
+        category = Category.objects.get(slug='top-category-two')
+        response = self.client.get(category.get_absolute_url())
+        self.assertContains(response, '/shop/catalog/top-category-two/level1-two-second/level1-two-second-sub/product/product-4/')
