@@ -118,11 +118,14 @@ class CategoryProductTestCase(TestCase):
         self.assertNotContains(response, '/shop/catalog/top-category/level1-first/level2-first/level2-first-sub/product/product-1/')
         self.assertNotContains(response, '/shop/catalog/top-category/level1-first/product/product-2/')
         self.assertContains(response, '/shop/catalog/top-category/level1-second/product/product-3/')
-
+        
+    def test_list_products_in_category_with_treeid(self):
+        product = Product.objects.get(slug='product-4')
+        
         category = Category.objects.get(slug='top-category')
         response = self.client.get(category.get_absolute_url())
-        self.assertNotContains(response, '/shop/catalog/top-category-two/level1-two-second/level1-two-second-sub/product/product-4/')
+        self.assertNotContains(response, product.get_absolute_url())
 
         category = Category.objects.get(slug='top-category-two')
         response = self.client.get(category.get_absolute_url())
-        self.assertContains(response, '/shop/catalog/top-category-two/level1-two-second/level1-two-second-sub/product/product-4/')
+        self.assertContains(response, product.get_absolute_url())
