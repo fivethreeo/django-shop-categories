@@ -119,7 +119,7 @@ class CategoryProductTestCase(TestCase):
         self.assertNotContains(response, '/shop/catalog/top-category/level1-first/product/product-2/')
         self.assertContains(response, '/shop/catalog/top-category/level1-second/product/product-3/')
         
-    def test_list_products_in_category_with_treeid(self):
+    def test_list_products_in_category_with_tree_id(self):
         product = Product.objects.get(slug='product-4')
         
         category = Category.objects.get(slug='top-category')

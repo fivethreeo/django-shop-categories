@@ -10,7 +10,11 @@ class CategoryShopListView(ShopListView):
         category = get_object_or_404(Category, path=self.kwargs['path'])
         self.category = category
         queryset = super(CategoryShopListView, self).get_queryset()
-        return queryset.filter(additional_categories__lft__gte=category.lft, additional_categories__rght__lte=category.rght).distinct()
+        return queryset.filter(
+            additional_categories__tree_id=category.tree_id,
+            additional_categories__lft__gte=category.lft,
+            additional_categories__rght__lte=category.rght
+        ).distinct()
         
     def get_context_data(self, **kwargs):
         context = super(CategoryShopListView, self).get_context_data(**kwargs)
