@@ -4,7 +4,7 @@ django-shop-categories
 
 A extendable category app using django-mptt for django-shop.
 
-.. image:: https://travis-ci.org/fivethreeo/django-shop-categories.png?branch=master
+.. image:: https://travis-ci.org/fivethreeo/django-shop-categories.png?branch=develop
    :target: https://travis-ci.org/fivethreeo/django-shop-categories
 
 Installation
