@@ -11,4 +11,4 @@ class Category(ProductCategoryBase):
         abstract = False
         app_label = 'shop_categories'
         verbose_name = _('Product Category')
-        verbose_name_plural = _('Product Categorys')
+        verbose_name_plural = _('Product Categories')
