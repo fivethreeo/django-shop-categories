@@ -36,7 +36,7 @@ Running tests:
 Configuration
 -------------
 
-Add ``shop_categories`` to ``settings.INSTALLED_APPS``.
+Add ``shop_categories`` and ``treeadmin`` to ``settings.INSTALLED_APPS``.
 
 Set ``SHOP_PRODUCT_MODEL`` to ``shop_categories.models.defaults.product.default.CategoryProduct``.
 
