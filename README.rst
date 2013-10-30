@@ -81,7 +81,7 @@ In category.py:
             abstract = False
             app_label = 'app'
 
-Set ``SHOP_CATEGORIES_CATEGORY_MODEL`` to ``app.models.category.Category``
+Set ``SHOP_CATEGORIES_CATEGORY_MODEL`` to ``('app.models.category.Category, 'app')``
 
 Register your custom category model in admin.py:
 
