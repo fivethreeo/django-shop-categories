@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from djeasytests.testsetup import TestSetup, default_settings
 
-default_settings.update(dict(
+test_settings = dict(
     ROOT_URLCONF='shop_categories.test_utils.project.urls',
     DATABASES = {
         'default': {
@@ -24,7 +24,7 @@ default_settings.update(dict(
     SHOP_CATEGORIES_CATEGORY_MODEL = 'shop_categories.test_utils.project.models.category.Category'
 ))
 
-testsetup = TestSetup(appname='shop_categories', default_settings=default_settings)
+testsetup = TestSetup(appname='shop_categories', test_settings=test_settings)
 
 if __name__ == '__main__':
-    testsetup.run('tests')
+    testsetup.run(__file__)
