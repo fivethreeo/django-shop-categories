@@ -8,6 +8,6 @@ env:
 install:
     - pip install $DJANGO django-shop $MPTT django-treeadmin django-easytests six
 script:
-    python runtests.py
+    python develop.py test
 notifications:
     email: false
