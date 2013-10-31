@@ -5,12 +5,6 @@ import shop_categories
 test_settings = dict(
     SITE_ID=1,
     ROOT_URLCONF='shop_categories.test_utils.project.urls',
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'shopexampledb.sqlite',
-        }
-    },
     INSTALLED_APPS = [
         'django.contrib.auth',
         'django.contrib.contenttypes',
