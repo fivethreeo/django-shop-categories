@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-from djeasytests.testsetup import TestSetup, default_settings
-
+from djeasytests.testsetup import TestSetup
 test_settings = dict(
     ROOT_URLCONF='shop_categories.test_utils.project.urls',
     DATABASES = {
@@ -22,7 +21,7 @@ test_settings = dict(
     ],
     SHOP_PRODUCT_MODEL = 'shop_categories.test_utils.project.models.product.Product',
     SHOP_CATEGORIES_CATEGORY_MODEL = 'shop_categories.test_utils.project.models.category.Category'
-))
+)
 
 testsetup = TestSetup(appname='shop_categories', test_settings=test_settings)
 
