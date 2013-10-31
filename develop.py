@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from djeasytests.testsetup import TestSetup
 test_settings = dict(
+    SITE_ID=1,
     ROOT_URLCONF='shop_categories.test_utils.project.urls',
     DATABASES = {
         'default': {
