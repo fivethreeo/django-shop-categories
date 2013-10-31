@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 from djeasytests.testsetup import TestSetup
+import shop_categories
+
 test_settings = dict(
     SITE_ID=1,
     ROOT_URLCONF='shop_categories.test_utils.project.urls',
@@ -24,7 +26,7 @@ test_settings = dict(
     SHOP_CATEGORIES_CATEGORY_MODEL = 'shop_categories.test_utils.project.models.category.Category'
 )
 
-testsetup = TestSetup(appname='shop_categories', test_settings=test_settings)
+testsetup = TestSetup(appname='shop_categories', test_settings=test_settings, version=shop_categories.get_version())
 
 if __name__ == '__main__':
     testsetup.run(__file__)
