@@ -20,10 +20,6 @@ class ProductCategoryBase(MPTTModel):
 
     active = models.BooleanField()
     
-    def natural_key(self):
-        return self.path
-    natural_key.dependencies = ['contenttypes.contenttype']
-
     class Meta:
         abstract = True
 
