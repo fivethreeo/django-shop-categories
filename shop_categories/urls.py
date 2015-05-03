@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import patterns, url
 from shop_categories.views import CategoryProductDetailView, CategoryShopListView
 from shop.models.productmodel import Product
 
